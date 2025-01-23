@@ -1,0 +1,100 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Customer Churn Prediction",
+        "description": "Predicts whether a customer will churn based on their information.",
+        "version": "1.0.0"
+    },
+    "host": "ChurnPredictionService.azurewebsites.net",
+    "basePath": "api/v1",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/predict": {
+            "post": {
+                "summary": "Predict customer churn",
+                "description": "Predicts whether a customer will churn based on their information.",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "RowNumber": {
+                                    "type": "string"
+                                },
+                                "CustomerId": {
+                                    "type": "string"
+                                },
+                                "Surname": {
+                                    "type": "string"
+                                },
+                                "CreditScore": {
+                                    "type": "string"
+                                },
+                                "Geography": {
+                                    "type": "string"
+                                },
+                                "Gender": {
+                                    "type": "string"
+                                },
+                                "Age": {
+                                    "type": "string"
+                                },
+                                "Tenure": {
+                                    "type": "string"
+                                },
+                                "Balance": {
+                                    "type": "string"
+                                },
+                                "NumOfProducts": {
+                                    "type": "string"
+                                },
+                                "HasCrCard": {
+                                    "type": "string"
+                                },
+                                "IsActiveMember": {
+                                    "type": "string"
+                                },
+                                "EstimatedSalary": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "RowNumber",
+                                "CustomerId",
+                                "Surname",
+                                "CreditScore",
+                                "Geography",
+                                "Gender",
+                                "Age",
+                                "Tenure",
+                                "Balance",
+                                "NumOfProducts",
+                                "HasCrCard",
+                                "IsActiveMember",
+                                "EstimatedSalary"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Prediction result",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "prediction": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
